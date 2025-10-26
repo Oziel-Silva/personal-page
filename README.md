@@ -1,65 +1,155 @@
-# Personal Page - Oziel
+# Personal Page
 
-Uma página pessoal elegante no estilo Apple, construída com **Next.js** (frontend) e **Go + Gin** (backend).
+Modern personal website with microservices architecture using Next.js and Go.
 
-## 🚀 Começando
+## 🏗️ Architecture
 
-### Pré-requisitos
-
-- **Node.js** 18+ 
-- **Go** 1.23+
-- **Docker** (opcional)
-
-### Instalação
-
-1. **Clone e instale dependências:**
-   ```bash
-   npm install
-   ```
-
-### Desenvolvimento
-
-#### Opção 1: Desenvolvimento Completo (Recomendado)
-```bash
-npm run dev:full
 ```
-Isso iniciará:
-- 🎨 Frontend Next.js em `http://localhost:3000`
-- 📡 Backend Go API em `http://localhost:8080`
-
-#### Opção 2: Desenvolvimento Separado
-
-**Terminal 1 - Backend:**
-```bash
-go run cmd/server/main.go
+personal-page/
+├── frontend/                 # Next.js Application
+│   ├── app/                 # Next.js App Router
+│   ├── components/          # React Components
+│   ├── public/             # Static Assets
+│   ├── package.json        # Frontend Dependencies
+│   └── ...                 # Next.js Config Files
+├── backend/                 # Go API Server
+│   ├── cmd/server/         # Main Application
+│   ├── internal/          # Business Logic
+│   ├── data/              # Data Files
+│   ├── go.mod             # Go Dependencies
+│   └── go.sum             # Dependency Checksums
+├── docs/                   # Documentation
+├── scripts/                # Development Scripts
+├── Dockerfile             # Backend Container
+├── Dockerfile.frontend    # Frontend Container
+├── docker-compose.yml     # Multi-service Orchestration
+└── README.md              # This File
 ```
 
-**Terminal 2 - Frontend:**
+## 🚀 Tech Stack
+
+### Frontend
+- **Next.js 14** - React Framework with App Router
+- **TypeScript** - Type Safety
+- **Tailwind CSS** - Utility-first CSS
+- **Framer Motion** - Animations
+
+### Backend
+- **Go 1.23** - High-performance API
+- **Gin** - HTTP Web Framework
+- **YAML** - Data Storage
+
+### Infrastructure
+- **Docker** - Containerization
+- **Cloudflare Tunnel** - Secure Public Access
+- **Multi-stage Builds** - Optimized Images
+
+## 🛠️ Development
+
+### Prerequisites
+- Docker & Docker Compose
+- Node.js 20+ (for local development)  
+- Go 1.23+ (for local development)
+
+### Quick Start
+
 ```bash
+# Clone repository
+git clone <repo-url>
+cd personal-page
+
+# Start entire application
+docker compose up -d
+
+# Check status
+docker ps
+```
+
+### Available URLs
+- **Frontend**: http://localhost:3000
+- **Backend API**: http://localhost:8080
+- **Public**: https://oziel.pt (via Cloudflare Tunnel)
+
+### Local Development
+
+#### Frontend
+```bash
+cd frontend
+npm install
 npm run dev
 ```
 
-### Produção
-
-#### Com Docker (Recomendado)
+#### Backend
 ```bash
-npm run docker:build
-npm run docker:up
-```
-
-#### Manual
-```bash
-# Build do frontend
-npm run build
-
-# Start do frontend
-npm start &
-
-# Start do backend
+cd backend
+go mod tidy
 go run cmd/server/main.go
 ```
 
-## 📁 Estrutura do Projeto
+## 📝 Useful Scripts
+
+```bash
+# Complete build and deploy
+docker compose up -d --build
+
+# View logs in real-time
+docker compose logs -f
+
+# Stop all services
+docker compose down
+
+# Rebuild frontend only
+docker compose build frontend
+
+# Rebuild backend only
+docker compose build api
+```
+
+## 🔒 Security
+
+- Sensitive files protected via `.gitignore`
+- Cloudflare credentials not committed
+- SSL certificates ignored
+- Multi-stage builds for optimized images
+
+## 🌐 Deployment
+
+The application is configured for automatic deployment via:
+- **Cloudflare Tunnel** for public access
+- **Docker Compose** for orchestration
+- **Health Checks** for monitoring
+
+## 📚 Development Structure
+
+### Standards Followed
+- **Modular monorepo** with clear separation of responsibilities
+- **Complete containerization** for environment consistency
+- **Declarative configuration** via Docker Compose
+- **Type Safety** with TypeScript in frontend
+- **Clean Architecture** in Go backend
+
+### Suggested Next Steps
+- CI/CD Pipeline (GitHub Actions)
+- Automated testing (frontend and backend)
+- Monitoring and observability
+- Database integration (PostgreSQL/MongoDB)
+- API versioning and documentation (Swagger)
+
+## 🤝 Contributing
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/new-feature`)
+3. Commit your changes (`git commit -m 'Add: new feature'`)
+4. Push to the branch (`git push origin feature/new-feature`)
+5. Open a Pull Request
+
+## � License
+
+This project is under the MIT license. See the [LICENSE](LICENSE) file for details.
+
+---
+
+**Developed with ❤️ by Oziel Santos**
 
 ```
 ├── app/                    # Next.js App Router
