@@ -6,7 +6,7 @@ Modern personal website built with **Next.js** featuring a clean Apple-inspired 
 
 ## 🏗️ Architecture
 
-\`\`\`
+```
 personal-page/
 ├── frontend/                # Next.js Application
 │   ├── app/                # Next.js App Router
@@ -20,7 +20,7 @@ personal-page/
 ├── Dockerfile            # Container Image
 ├── docker-compose.yml    # Deployment Orchestration
 └── README.md             # This File
-\`\`\`
+```
 
 ## 🚀 Tech Stack
 
@@ -43,7 +43,7 @@ personal-page/
 
 ### Quick Start
 
-\`\`\`bash
+```bash
 # Clone repository
 git clone https://github.com/Oziel-Silva/personal-page.git
 cd personal-page
@@ -55,7 +55,7 @@ docker-compose up --build -d
 cd frontend
 npm install
 npm run dev
-\`\`\`
+```
 
 ### Available URLs
 - **Local**: http://localhost:3000
@@ -64,7 +64,7 @@ npm run dev
 ## 📦 Deployment Options
 
 ### Docker (Recommended)
-\`\`\`bash
+```bash
 # Build and start
 docker-compose up --build -d
 
@@ -73,22 +73,22 @@ docker-compose logs -f
 
 # Stop
 docker-compose down
-\`\`\`
+```
 
 ### Manual Deployment
-\`\`\`bash
+```bash
 cd frontend
 npm install
 npm run build
 npm start
-\`\`\`
+```
 
 ### Static Export (Optional)
-\`\`\`bash
+```bash
 cd frontend
 npm run build
 # Deploy 'out' folder to any static host
-\`\`\`
+```
 
 ## 🎨 Features
 
@@ -103,24 +103,24 @@ npm run build
 ## 🔧 Customization
 
 ### Content
-Edit \`/frontend/components/page.tsx\`:
+Edit `/frontend/components/page.tsx`:
 - Update personal information
 - Modify sections (about, services, etc.)
 - Change contact details
 
 ### Images
-Replace \`/frontend/public/profile.jpg\` with your photo.
+Replace `/frontend/public/profile.jpg` with your photo.
 
 ### Styling
 - Tailwind classes in components
-- Global styles in \`/frontend/app/globals.css\`
+- Global styles in `/frontend/app/globals.css`
 
 ### Domain
-Update \`config.yml\` with your Cloudflare tunnel configuration.
+Update `config.yml` with your Cloudflare tunnel configuration.
 
 ## 📝 Useful Commands
 
-\`\`\`bash
+```bash
 # Development
 npm run dev              # Start dev server
 npm run build           # Build for production
@@ -130,7 +130,7 @@ npm run start           # Start production server
 docker-compose up -d     # Start containers
 docker-compose logs -f   # View logs
 docker-compose down      # Stop containers
-\`\`\`
+```
 
 ## 🌐 Simplified Architecture Benefits
 
@@ -141,27 +141,6 @@ docker-compose down      # Stop containers
 - **Cost Effective** - Minimal resource usage
 - **Scalable** - CDN-ready static assets
 
-## 🔒 Security
-
-- Cloudflare credentials protected via \`.gitignore\`
-- SSL certificates excluded from repository
-- Minimal attack surface (no backend API)
-- Multi-stage Docker builds
-
-## 🚀 Performance
-
-- **Image Optimization**: JPG format (~87% smaller than PNG)
-- **Next.js SSG**: Static site generation
-- **Cloudflare CDN**: Global edge caching
-- **Docker Multi-stage**: Optimized container size
-
-## 🤝 Contributing
-
-1. Fork the project
-2. Create your feature branch (\`git checkout -b feature/new-feature\`)
-3. Commit your changes (\`git commit -m 'Add: new feature'\`)
-4. Push to the branch (\`git push origin feature/new-feature\`)
-5. Open a Pull Request
 
 ## 📄 License
 
