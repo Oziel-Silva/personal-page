@@ -103,7 +103,7 @@ npm run build
 ## 🔧 Customization
 
 ### Content
-Edit \`/frontend/components/apple-style-simple.tsx\`:
+Edit \`/frontend/components/page.tsx\`:
 - Update personal information
 - Modify sections (about, services, etc.)
 - Change contact details

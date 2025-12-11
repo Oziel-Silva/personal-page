@@ -12,9 +12,9 @@ export default function AppleStylePage() {
         <nav className="max-w-6xl mx-auto flex items-center justify-between px-4 h-14">
           <a href="#home" className="font-semibold tracking-tight text-xl">oziel.</a>
           <ul className="hidden md:flex gap-6 text-sm text-neutral-700">
-            <li><a className="hover:text-black" href="#work">Work</a></li>
+            {/* <li><a className="hover:text-black" href="#work">Work</a></li>
             <li><a className="hover:text-black" href="#services">Services</a></li>
-            <li><a className="hover:text-black" href="#articles">Articles</a></li>
+            <li><a className="hover:text-black" href="#articles">Articles</a></li> */}
             <li><a className="hover:text-black" href="#about">About</a></li>
           </ul>
           <a href="#contact" className="text-sm rounded-full px-4 py-1.5 bg-black text-white hover:bg-neutral-900">Contact</a>
@@ -22,7 +22,7 @@ export default function AppleStylePage() {
       </header>
 
       {/* Hero */}
-      <section id="home" className="relative overflow-hidden">
+      {/* <section id="home" className="relative overflow-hidden">
         <div className="max-w-6xl mx-auto px-4 py-24 sm:py-32">
           <h1 className="text-5xl sm:text-6xl md:text-7xl leading-[0.95] tracking-tight font-semibold opacity-0 animate-fade-in">
             Elegantly engineered platforms.
@@ -34,10 +34,10 @@ export default function AppleStylePage() {
             <a href="#contact" className="rounded-full bg-black text-white px-6 py-3 text-sm hover:bg-neutral-900">Start a project</a>
             <a href="#work" className="rounded-full border border-neutral-200 px-6 py-3 text-sm hover:bg-neutral-100">See the work</a>
           </div>
-        </div>
+        </div> */}
 
         {/* Minimal device mock */}
-        <div className="relative max-w-6xl mx-auto px-4 pb-24">
+        {/* <div className="relative max-w-6xl mx-auto px-4 pb-24">
           <div className="aspect-[16/9] rounded-[2rem] border border-neutral-200 shadow-[0_20px_60px_-20px_rgba(0,0,0,0.25)] overflow-hidden">
             <div className="h-7 bg-neutral-100 flex items-center justify-center border-b border-neutral-200">
               <div className="w-24 h-1.5 bg-neutral-300 rounded-full" />
@@ -60,7 +60,7 @@ export default function AppleStylePage() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Services */}
       {/* <section id="services" className="bg-white">
@@ -87,7 +87,7 @@ export default function AppleStylePage() {
       </section> */}
 
       {/* Articles strip */}
-      <section id="articles" className="bg-neutral-50">
+      {/* <section id="articles" className="bg-neutral-50">
         <div className="max-w-6xl mx-auto px-4 py-16 sm:py-24">
           <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">Latest writing</h2>
           <div className="mt-8 grid md:grid-cols-3 gap-6">
@@ -100,7 +100,7 @@ export default function AppleStylePage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* About */}
       <section id="about" className="bg-white">
@@ -116,7 +116,7 @@ export default function AppleStylePage() {
           <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight">Hi, I'm Oziel.</h2>
           <p className="mt-4 text-neutral-600 text-lg"> Senior DevOps Engineer focused on platform engineering, cloud infrastructure, 
       and enabling teams to ship faster with confidence.</p>
-          <p className="mt-2 text-neutral-500 text-sm">Experience at Huawei, Azion, TV Globo, and JP Morgan.</p>
+          <p className="mt-2 text-neutral-500 text-sm">Experience at JP Morgan, Azion and TV Globo.</p>
         </div>
       </section>
 

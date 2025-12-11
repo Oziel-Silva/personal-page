@@ -1,4 +1,4 @@
-import AppleStylePage from '../components/apple-style-simple'
+import AppleStylePage from '../components/page'
 
 export default function HomePage() {
   return <AppleStylePage />
