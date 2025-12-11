@@ -14,7 +14,7 @@ func main() {
 	}
 	dataPath := os.Getenv("DATA_PATH")
 	if dataPath == "" {
-		dataPath = "data/datal.yaml"
+		dataPath = "data/data.yaml"
 	}
 	store, err := internal.NewYAMLStore(dataPath)
 	if err != nil {
@@ -25,6 +25,7 @@ func main() {
 
 	r.GET("/", h.Home)
 	r.GET("/healthz", h.Healthz)
+	r.POST("/api/contact", h.Contact)
 
 	r.Run(":" + port)
 }
