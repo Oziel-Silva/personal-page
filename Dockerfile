@@ -1,62 +1,47 @@
-# Build stage
-FROM golang:1.23-alpine AS builder
+# Dockerfile for simplified personal page
+FROM node:20-alpine AS base
 
-# Set working directory
+# Install dependencies only when needed
+FROM base AS deps
+RUN apk add --no-cache libc6-compat
 WORKDIR /app
 
-# Install git (needed for go mod download)
-RUN apk add --no-cache git
+# Install dependencies based on the preferred package manager
+COPY frontend/package.json frontend/package-lock.json* ./
+RUN npm ci
 
-# Copy go mod files
-COPY backend/go.mod backend/go.sum ./
-
-# Download dependencies
-RUN go mod download
-
-# Copy source code
-COPY backend/ .
-
-# Tidy up dependencies
-RUN go mod tidy
+# Rebuild the source code only when needed
+FROM base AS builder
+WORKDIR /app
+COPY --from=deps /app/node_modules ./node_modules
+COPY frontend/ .
 
 # Build the application
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main ./cmd/server
+RUN npm run build
 
-# Final stage
-FROM alpine:latest
+# Production image, copy all the files and run next
+FROM base AS runner
+WORKDIR /app
 
-# Install ca-certificates for HTTPS requests
-RUN apk --no-cache add ca-certificates
+ENV NODE_ENV=production
 
-# Create non-root user
-RUN addgroup -g 1001 -S appgroup && \
-    adduser -u 1001 -S appuser -G appgroup
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
 
-WORKDIR /root/
+COPY --from=builder /app/public ./public
 
-# Copy the binary from builder stage
-COPY --from=builder /app/main .
+# Set the correct permission for prerender cache
+RUN mkdir .next
+RUN chown nextjs:nodejs .next
 
-# Copy data directory
-COPY --from=builder /app/data ./data
+# Automatically leverage output traces to reduce image size
+COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
-# Change ownership to non-root user
-RUN chown -R appuser:appgroup /root/
+USER nextjs
 
-# Switch to non-root user
-USER appuser
+EXPOSE 3000
 
-# Expose port
-EXPOSE 8080
+ENV PORT=3000
 
-# Set environment variables
-ENV PORT=8080
-ENV DATA_PATH=data/datal.yaml
-ENV GIN_MODE=release
-
-# Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD wget --no-verbose --tries=1 --spider http://localhost:8080/healthz || exit 1
-
-# Run the application
-CMD ["./main"]
+CMD ["node", "server.js"]
