@@ -62,78 +62,8 @@ export default function AppleStylePage() {
         </div>
       </section>
 
-      {/* Panels like apple.com sections */}
-      <section id="work" className="bg-black text-white">
-        <div className="max-w-6xl mx-auto px-4 py-20 sm:py-28">
-          <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight">Selected Work</h2>
-          <p className="mt-4 text-neutral-300 max-w-2xl">A few recent builds and platform upgrades.</p>
-
-          <div className="mt-10 grid md:grid-cols-2 gap-6">
-            <Panel
-              title="Internal Developer Platform"
-              subtitle="EKS • GitOps • Golden Paths"
-              cta="Case study"
-              href="#"
-            >
-              <DeviceCard label="Deploy">
-                <div className="space-y-2 text-xs font-mono">
-                  <div className="flex items-center gap-2"><Dot /> Build image — passed</div>
-                  <div className="flex items-center gap-2"><Dot /> Helm upgrade — succeeded</div>
-                  <div className="flex items-center gap-2"><Dot /> Canary — healthy</div>
-                </div>
-              </DeviceCard>
-            </Panel>
-
-            <Panel
-              title="Observability Unification"
-              subtitle="OpenTelemetry • Tempo • Loki • GMP"
-              cta="See dashboard"
-              href="#"
-              light
-            >
-              <DeviceCard label="Service Heatmap" light>
-                <div className="w-full h-24 rounded-lg bg-gradient-to-tr from-neutral-200 to-white" />
-                <div className="grid grid-cols-4 gap-2 mt-3">
-                  {[...Array(8)].map((_, i) => (
-                    <div key={i} className="h-10 rounded bg-neutral-200" />
-                  ))}
-                </div>
-              </DeviceCard>
-            </Panel>
-
-            <Panel
-              title="Edge Security"
-              subtitle="Cloudflare • Tailscale"
-              cta="Architecture"
-              href="#"
-            >
-              <DeviceCard label="Zero‑trust" >
-                <div className="flex gap-2 items-center text-xs">
-                  <span className="rounded-full px-2 py-1 bg-green-600/90">policy: allow</span>
-                  <span className="rounded-full px-2 py-1 bg-neutral-800">mTLS</span>
-                  <span className="rounded-full px-2 py-1 bg-neutral-800">WAF</span>
-                </div>
-              </DeviceCard>
-            </Panel>
-
-            <Panel
-              title="Cost & Performance"
-              subtitle="Karpenter • Autoscaling"
-              cta="Read notes"
-              href="#"
-              light
-            >
-              <DeviceCard label="Autoscaling" light>
-                <div className="w-full h-28 rounded-lg border border-neutral-200" />
-                <p className="text-xs text-neutral-500 mt-2">Right‑sized nodes. Idle shaved. Throughput up.</p>
-              </DeviceCard>
-            </Panel>
-          </div>
-        </div>
-      </section>
-
       {/* Services */}
-      <section id="services" className="bg-white">
+      {/* <section id="services" className="bg-white">
         <div className="max-w-6xl mx-auto px-4 py-20 sm:py-28">
           <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight">Services</h2>
           <p className="mt-4 text-neutral-600 max-w-2xl">From foundations to finely tuned platforms.</p>
@@ -154,7 +84,7 @@ export default function AppleStylePage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Articles strip */}
       <section id="articles" className="bg-neutral-50">
@@ -175,26 +105,47 @@ export default function AppleStylePage() {
       {/* About */}
       <section id="about" className="bg-white">
         <div className="max-w-4xl mx-auto px-4 py-16 sm:py-24 text-center">
+          {/* Profile Image */}
+          <div className="mb-8">
+            <img 
+              src="/profile.jpg" 
+              alt="Oziel" 
+              className="w-32 h-34 rounded-full mx-auto object-cover border-4 border-neutral-100 shadow-lg"
+            />
+          </div>
           <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight">Hi, I'm Oziel.</h2>
-          <p className="mt-4 text-neutral-600 text-lg">Senior DevOps Engineer & platform builder. I help teams ship reliably at scale.</p>
-          <p className="mt-2 text-neutral-500 text-sm">Previously at Huawei, Azion, TV Globo, and more.</p>
+          <p className="mt-4 text-neutral-600 text-lg"> Senior DevOps Engineer focused on platform engineering, cloud infrastructure, 
+      and enabling teams to ship faster with confidence.</p>
+          <p className="mt-2 text-neutral-500 text-sm">Experience at Huawei, Azion, TV Globo, and JP Morgan.</p>
         </div>
       </section>
 
       {/* Contact */}
-      <section id="contact" className="bg-black text-white">
-        <div className="max-w-4xl mx-auto px-4 py-20 sm:py-28 text-center">
-          <h2 className="text-4xl sm:text-5xl font-semibold tracking-tight">Let's build something great.</h2>
-          <p className="mt-4 text-neutral-300">Tell me about your goals. I'll reply within 1–2 business days.</p>
-          <form className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4 text-left max-w-3xl mx-auto">
-            <input placeholder="Your name" className="rounded-xl px-4 py-3 bg-white text-black placeholder:text-neutral-400" />
-            <input placeholder="Email" className="rounded-xl px-4 py-3 bg-white text-black placeholder:text-neutral-400" />
-            <input placeholder="Company" className="rounded-xl px-4 py-3 bg-white text-black placeholder:text-neutral-400 md:col-span-2" />
-            <textarea placeholder="Project details" rows={4} className="rounded-xl px-4 py-3 bg-white text-black placeholder:text-neutral-400 md:col-span-2" />
-            <div className="md:col-span-2 flex justify-center">
-              <button type="button" className="rounded-full bg-white text-black px-6 py-3 text-sm hover:bg-neutral-200">Send</button>
+      <section id="contact" className="relative overflow-hidden bg-black text-white">
+        <div className="max-w-6xl mx-auto px-4 py-24 sm:py-32">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl leading-[0.95] tracking-tight font-semibold mb-6">
+              Let's build something great.
+            </h2>
+            <p className="text-lg sm:text-xl text-gray-300 mb-12">
+              Tell me about your goals. I'll reply within 1–2 business days.
+            </p>
+            
+            <div className="space-y-4">
+              <a 
+                href="mailto:oziel@example.com" 
+                className="inline-flex items-center justify-center px-8 py-4 rounded-2xl bg-white text-black font-medium hover:bg-gray-100 transition-colors"
+              >
+                Send Email
+              </a>
+              <div className="text-gray-400 text-sm">
+                or reach out on{" "}
+                <a href="https://linkedin.com/in/oziels" className="underline hover:text-white">
+                  LinkedIn
+                </a>
+              </div>
             </div>
-          </form>
+          </div>
         </div>
       </section>
 
