@@ -133,7 +133,7 @@ export default function AppleStylePage() {
             
             <div className="space-y-4">
               <a 
-                href="mailto:oziel@example.com" 
+                href="mailto:oziel.service@gmail.com" 
                 className="inline-flex items-center justify-center px-8 py-4 rounded-2xl bg-white text-black font-medium hover:bg-gray-100 transition-colors"
               >
                 Send Email
