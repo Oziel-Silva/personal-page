@@ -2,7 +2,7 @@ name: personal-page
 
 services:
   personal-page:
-    image: ghcr.io/oziel-silva/personal-page:latest
+    image: ghcr.io/oziel-silva/personal-page:0.0.4
     build: ./site
     ports:
       - "3000:3000"
