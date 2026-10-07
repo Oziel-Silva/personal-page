@@ -1,27 +1,25 @@
+name: personal-page
+
 services:
-  # Frontend (Next.js)
   personal-page:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: oziel4ever/my-personal-page:0.0.3
+    build: ./site
     ports:
       - "3000:3000"
-    environment:
-      - NODE_ENV=production
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000"]
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://127.0.0.1:3000"]
       interval: 30s
       timeout: 10s
       retries: 3
       start_period: 5s
 
-  # Optional: Cloudflare tunnel (uncomment if needed)
-  # cloudflare-tunnel:
-  #   image: cloudflare/cloudflared:latest
-  #   volumes:
-  #     - .:/home/nonroot/.cloudflared
-  #   command: tunnel --config /home/nonroot/.cloudflared/config.yml run
-  #   depends_on:
-  #     - personal-page
-  #   restart: unless-stopped
+  cloudflare-tunnel:
+    image: cloudflare/cloudflared:latest
+    user: "0:0"
+    volumes:
+      - ./cloudflared:/home/nonroot/.cloudflared
+    command: tunnel --config /home/nonroot/.cloudflared/config.yml run
+    depends_on:
+      - personal-page
+    restart: unless-stopped
