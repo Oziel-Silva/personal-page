@@ -118,3 +118,6 @@ terraform.tfvars.json
 notes.md
 TODO.md
 NOTES.txt
+
+# Claude Code
+.claude/
