@@ -121,3 +121,6 @@ NOTES.txt
 
 # Claude Code
 .claude/
+
+# Local release helper (not needed on the NAS)
+scripts/release.sh
